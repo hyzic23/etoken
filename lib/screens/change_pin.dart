@@ -1,4 +1,5 @@
 import 'package:etoken/widgets/button_widget.dart';
+import 'package:etoken/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChangePin extends StatefulWidget {
@@ -34,9 +35,9 @@ class ChangePinWidget extends StatefulWidget {
 
 class _ChangePinWidgetState extends State<ChangePinWidget> {
   final formKey = GlobalKey<FormState>();
-  String oldPin = '';
-  String newPin = '';
-  String confirmNewPin = '';
+  final oldPin = TextEditingController();
+  final newPin = TextEditingController();
+  final confirmNewPin = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +46,11 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          buildOldPin(),
+          oldPinText(),
           const SizedBox(height: 16),
-          buildNewPin(),
+          newPinText(),
           const SizedBox(height: 16),
-          buildConfirmNewPin(),
+          confirmNewPinText(),
           const SizedBox(height: 16),
           buildSubmit()
         ],
@@ -57,58 +58,58 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
     );
   }
 
-  Widget buildOldPin() => TextFormField(
-        decoration: const InputDecoration(
-          labelText: 'Old Pin',
-          border: OutlineInputBorder(),
-        ),
-        validator: (value) {
-          if (value == null || value.length < 4 || value.length > 5) {
-            return 'Enter at least 4 characters';
-          } else {
-            return null;
-          }
-        },
-        maxLength: 4,
-        onSaved: (value) => setState(() {
-          oldPin = value!;
-        }),
-      );
-
-  Widget buildNewPin() => TextFormField(
+  Widget oldPinText() => TextFormFieldWidget(
+        controller: oldPin,
+        //obscureText: false,
+        labelText: 'Old PIN',
         keyboardType: TextInputType.number,
-        decoration: const InputDecoration(
-          labelText: 'New Pin',
-          border: OutlineInputBorder(),
-        ),
+        hintText: 'Old PIN',
+        max: 4,
         validator: (value) {
           if (value == null || value.length < 4 || value.length > 5) {
-            return 'Enter at least 4 characters';
+            return 'Enter 4 characters';
           } else {
             return null;
           }
         },
-        maxLength: 4,
         onSaved: (value) => setState(() {
-          newPin = value!;
+          oldPin.text = value;
         }),
       );
 
-  Widget buildConfirmNewPin() => TextFormField(
-        decoration: const InputDecoration(
-          labelText: 'Confirm New Pin',
-          border: OutlineInputBorder(),
-        ),
+  Widget newPinText() => TextFormFieldWidget(
+        controller: newPin,
+        labelText: 'New PIN',
+        keyboardType: TextInputType.number,
+        hintText: 'New PIN',
+        max: 4,
         validator: (value) {
           if (value == null || value.length < 4 || value.length > 5) {
-            return 'Enter at least 4 characters';
+            return 'Enter 4 characters';
           } else {
             return null;
           }
         },
-        maxLength: 4,
         onSaved: (value) => setState(() {
-          confirmNewPin = value!;
+          newPin.text = value;
+        }),
+      );
+
+  Widget confirmNewPinText() => TextFormFieldWidget(
+        controller: confirmNewPin,
+        labelText: 'Confirm New PIN',
+        keyboardType: TextInputType.number,
+        hintText: 'Confirm New PIN',
+        max: 4,
+        validator: (value) {
+          if (value == null || value.length < 4 || value.length > 5) {
+            return 'Enter 4 characters';
+          } else {
+            return null;
+          }
+        },
+        onSaved: (value) => setState(() {
+          confirmNewPin.text = value;
         }),
       );
 
@@ -116,12 +117,11 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
         text: 'Submit',
         onClicked: () {
           final isValid = formKey.currentState!.validate();
-
           if (isValid) {
             formKey.currentState!.save();
 
             final message =
-                'OldPin: $oldPin\nNewPin: $newPin\nConfrimNewPin: $confirmNewPin';
+                'OldPin: ${oldPin.text} \nNewPin: ${newPin.text} \nConfrimNewPin: ${confirmNewPin.text}';
             final snackBar = SnackBar(
               content: Text(
                 message,

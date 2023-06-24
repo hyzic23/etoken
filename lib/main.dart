@@ -1,3 +1,4 @@
+import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/change_pin.dart';
 import 'package:etoken/screens/generate_otp.dart';
 import 'package:etoken/screens/time_synchronize.dart';
@@ -62,9 +63,8 @@ class _HomeState extends State<Home> {
               constraints: const BoxConstraints.expand(width: 350, height: 50),
               child: ElevatedButton.icon(
                 label: const Align(
-                  //alignment: Alignment.center,
                   child: Text('Generate OTP',
-                      style: TextStyle(color: Colors.white)),
+                      style: TextStyle(color: Constant.textColorWhite)),
                 ),
                 icon: const Align(
                   alignment: Alignment.centerRight,
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: () {
@@ -93,14 +93,14 @@ class _HomeState extends State<Home> {
                 label: const Align(
                   //alignment: Alignment.centerLeft,
                   child: Text('Token Details',
-                      style: TextStyle(color: Colors.white)),
+                      style: TextStyle(color: Constant.textColorWhite)),
                 ),
                 icon: const Icon(
                   Icons.event_note,
                   color: Colors.white,
                 ),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: () {
@@ -117,14 +117,14 @@ class _HomeState extends State<Home> {
               child: ElevatedButton.icon(
                 label: const Align(
                   child: Text('Time Synchronization',
-                      style: TextStyle(color: Colors.white)),
+                      style: TextStyle(color: Constant.textColorWhite)),
                 ),
                 icon: const Icon(
                   Icons.access_time,
                   color: Colors.white,
                 ),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: () {
@@ -139,15 +139,15 @@ class _HomeState extends State<Home> {
               child: ElevatedButton.icon(
                 label: const Align(
                   //alignment: Alignment.centerLeft,
-                  child:
-                      Text('Reset Pin', style: TextStyle(color: Colors.white)),
+                  child: Text('Reset Pin',
+                      style: TextStyle(color: Constant.textColorWhite)),
                 ),
                 icon: const Icon(
                   Icons.lock_open_rounded,
                   color: Colors.white,
                 ),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: () {},
@@ -159,15 +159,15 @@ class _HomeState extends State<Home> {
               child: ElevatedButton.icon(
                 label: const Align(
                   //alignment: Alignment.centerLeft,
-                  child:
-                      Text('Change Pin', style: TextStyle(color: Colors.white)),
+                  child: Text('Change Pin',
+                      style: TextStyle(color: Constant.textColorWhite)),
                 ),
                 icon: const Icon(
                   Icons.pin,
                   color: Colors.white,
                 ),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: () {
