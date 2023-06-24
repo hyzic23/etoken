@@ -9,6 +9,9 @@ class GenerateToken extends StatelessWidget {
     return Scaffold(
         //backgroundColor: Colors.white,
         appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
           backgroundColor: Colors.red[900],
           title: const Text('Generate Token',
               style: TextStyle(color: Colors.white)),

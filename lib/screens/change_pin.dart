@@ -14,6 +14,9 @@ class _ChangePinState extends State<ChangePin> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red[900],
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
           title:
               const Text('Change Pin', style: TextStyle(color: Colors.white)),
           centerTitle: true,

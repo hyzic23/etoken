@@ -8,6 +8,9 @@ class TokenDetails extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red[900],
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
           title: const Text('Token Details',
               style: TextStyle(color: Colors.white)),
           centerTitle: true,

@@ -9,6 +9,9 @@ class TimeSynchronize extends StatelessWidget {
         //backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.red[900],
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
           title: const Text('Time Synchronization',
               style: TextStyle(color: Colors.white)),
           centerTitle: true,
