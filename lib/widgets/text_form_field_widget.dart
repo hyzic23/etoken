@@ -36,13 +36,18 @@ class TextFormFieldWidget extends StatelessWidget {
         hintText: hintText,
         hintStyle: const TextStyle(color: Colors.white),
         label: Text(labelText),
+        labelStyle: const TextStyle(color: Colors.grey),
         border: const OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.circular(5.5)),
         focusedBorder: const OutlineInputBorder(
           //borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
         ),
-        // labelStyle: const TextStyle(
-        //   color: ,
+        // prefixIcon: Icon(
+        //   Icons.person,
+        //   color: Colors.amber,
         // )
       ),
       //obscureText: obscureText = false,

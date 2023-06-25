@@ -24,10 +24,9 @@ class ButtonWidget extends StatelessWidget {
                     side: const BorderSide(color: Colors.red)))),
         child: Text(
           text,
-          style: const TextStyle(
-            fontSize: 14,
-            //   //color: Theme.of(context).primaryColor,
-          ),
+          style: const TextStyle(fontSize: 15, color: Colors.white
+              //   //color: Theme.of(context).primaryColor,
+              ),
         ));
   }
 }

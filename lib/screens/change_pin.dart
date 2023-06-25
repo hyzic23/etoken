@@ -41,26 +41,31 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          oldPinText(),
-          const SizedBox(height: 16),
-          newPinText(),
-          const SizedBox(height: 16),
-          confirmNewPinText(),
-          const SizedBox(height: 16),
-          buildSubmit()
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Container(
+        width: double.infinity,
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(height: 70, child: oldPinText()),
+              const SizedBox(height: 16),
+              Container(height: 70, child: newPinText()),
+              const SizedBox(height: 16),
+              Container(height: 70, child: confirmNewPinText()),
+              const SizedBox(height: 16),
+              SizedBox(height: 50, width: 400, child: buildSubmit()),
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget oldPinText() => TextFormFieldWidget(
         controller: oldPin,
-        //obscureText: false,
         labelText: 'Old PIN',
         keyboardType: TextInputType.number,
         hintText: 'Old PIN',
@@ -119,7 +124,6 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
           final isValid = formKey.currentState!.validate();
           if (isValid) {
             formKey.currentState!.save();
-
             final message =
                 'OldPin: ${oldPin.text} \nNewPin: ${newPin.text} \nConfrimNewPin: ${confirmNewPin.text}';
             final snackBar = SnackBar(
