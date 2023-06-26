@@ -1,5 +1,6 @@
 import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/generate_otp.dart';
+import 'package:etoken/screens/reset_pin_token.dart';
 import 'package:flutter/material.dart';
 
 class ResetPin extends StatelessWidget {
@@ -31,16 +32,18 @@ class ResetPinWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         //mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Choose your reset method',
-            style: TextStyle(fontSize: 18),
+          const Padding(
+            padding: EdgeInsets.all(40.0),
+            child: Text(
+              'Choose your reset method',
+              style: TextStyle(fontSize: 15),
+            ),
           ),
-          //Image.asset('assets/token.webp'),
           Center(
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const GenerateToken(),
+                  builder: (context) => const ResetPinTokenScreen(),
                 ));
               },
               child: Image.asset(
@@ -49,41 +52,22 @@ class ResetPinWidget extends StatelessWidget {
                 width: 200.0,
                 height: 200.0,
               ),
-              // height: 300.0,
-              // width: 300.0,
-              // alignment: Alignment.center,
-              // padding: const EdgeInsets.all(20),
-              // decoration: const BoxDecoration(
-              //   shape: BoxShape.rectangle,
-              //   image: DecorationImage(
-              //       image: AssetImage('assets/token.png'), fit: BoxFit.fill),
-              // ),
-              //child: Text('Hardware Token'),
             ),
           ),
-          //const SizedBox(height: 10),
+          const SizedBox(height: 10),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const GenerateToken(),
+              ));
+            },
             splashColor: Colors.white10,
             child: Ink.image(
                 fit: BoxFit.cover,
                 width: 200,
                 height: 200,
-                image: AssetImage('assets/card2.jpeg')),
+                image: const AssetImage('assets/card.jpg')),
           )
-          // Container(
-          //   height: 300.0,
-          //   width: 400.0,
-          //   alignment: Alignment.center,
-          //   padding: const EdgeInsets.all(20),
-          //   decoration: const BoxDecoration(
-          //     shape: BoxShape.rectangle,
-          //     image: DecorationImage(
-          //         image: AssetImage('assets/card.jpeg'), fit: BoxFit.fill),
-          //   ),
-
-          //   //child: Text('Hardware Token'),
-          // ),
         ],
       ),
     );
