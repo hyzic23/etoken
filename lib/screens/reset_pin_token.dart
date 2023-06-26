@@ -1,4 +1,5 @@
 import 'package:etoken/widgets/button_widget.dart';
+import 'package:etoken/widgets/text_form_field_password_widget.dart';
 import 'package:etoken/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -84,11 +85,11 @@ class _ResetPinTokenWidgetState extends State<ResetPinTokenWidget> {
         }),
       );
 
-  Widget pinTokenText() => TextFormFieldWidget(
+  Widget pinTokenText() => TextFormFieldPasswordWidget(
         controller: pinToken,
-        labelText: 'Old PIN',
+        labelText: 'Pin + Token',
         keyboardType: TextInputType.number,
-        hintText: 'Old PIN',
+        hintText: 'Pin + Token',
         max: 6,
         validator: (value) {
           if (value == null || value.length < 6 || value.length > 6) {

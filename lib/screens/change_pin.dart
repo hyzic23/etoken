@@ -1,4 +1,5 @@
 import 'package:etoken/widgets/button_widget.dart';
+import 'package:etoken/widgets/text_form_field_password_widget.dart';
 import 'package:etoken/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -64,12 +65,13 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
     );
   }
 
-  Widget oldPinText() => TextFormFieldWidget(
+  Widget oldPinText() => TextFormFieldPasswordWidget(
         controller: oldPin,
         labelText: 'Old PIN',
         keyboardType: TextInputType.number,
         hintText: 'Old PIN',
         max: 4,
+        //obscureText: false,
         validator: (value) {
           if (value == null || value.length < 4 || value.length > 5) {
             return 'Enter 4 characters';
@@ -82,7 +84,7 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
         }),
       );
 
-  Widget newPinText() => TextFormFieldWidget(
+  Widget newPinText() => TextFormFieldPasswordWidget(
         controller: newPin,
         labelText: 'New PIN',
         keyboardType: TextInputType.number,
@@ -100,7 +102,7 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
         }),
       );
 
-  Widget confirmNewPinText() => TextFormFieldWidget(
+  Widget confirmNewPinText() => TextFormFieldPasswordWidget(
         controller: confirmNewPin,
         labelText: 'Confirm New PIN',
         keyboardType: TextInputType.number,

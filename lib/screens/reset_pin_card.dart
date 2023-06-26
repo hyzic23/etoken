@@ -1,4 +1,5 @@
 import 'package:etoken/widgets/button_widget.dart';
+import 'package:etoken/widgets/text_form_field_password_widget.dart';
 import 'package:etoken/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -85,7 +86,7 @@ class _ResetPinCardWidgetState extends State<ResetPinCardWidget> {
         }),
       );
 
-  Widget last6DigitsText() => TextFormFieldWidget(
+  Widget last6DigitsText() => TextFormFieldPasswordWidget(
         controller: last6Digits,
         labelText: 'Last 6-digits',
         keyboardType: TextInputType.number,
@@ -103,7 +104,7 @@ class _ResetPinCardWidgetState extends State<ResetPinCardWidget> {
         }),
       );
 
-  Widget cardPinText() => TextFormFieldWidget(
+  Widget cardPinText() => TextFormFieldPasswordWidget(
         controller: cardPin,
         labelText: 'Card Pin',
         keyboardType: TextInputType.number,

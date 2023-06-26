@@ -1,4 +1,3 @@
-import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/reset_pin_card.dart';
 import 'package:etoken/screens/reset_pin_token.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ class ResetPin extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Reset Pin', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        backgroundColor: Constant.buttonColorRed,
+        backgroundColor: Colors.red[900],
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
