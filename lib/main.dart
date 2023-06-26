@@ -1,6 +1,7 @@
 import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/change_pin.dart';
 import 'package:etoken/screens/generate_otp.dart';
+import 'package:etoken/screens/reset_pin.dart';
 import 'package:etoken/screens/time_synchronize.dart';
 import 'package:etoken/screens/token_details.dart';
 import 'package:flutter/material.dart';
@@ -150,7 +151,10 @@ class _HomeState extends State<Home> {
                     backgroundColor: Constant.buttonColorRed,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ResetPin()));
+                },
               ),
             ),
             const SizedBox(height: 4.0),
