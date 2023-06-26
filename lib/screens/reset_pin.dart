@@ -1,5 +1,5 @@
 import 'package:etoken/commons/constant.dart';
-import 'package:etoken/screens/generate_otp.dart';
+import 'package:etoken/screens/reset_pin_card.dart';
 import 'package:etoken/screens/reset_pin_token.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +58,7 @@ class ResetPinWidget extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const GenerateToken(),
+                builder: (context) => const ResetPinCardScreen(),
               ));
             },
             splashColor: Colors.white10,
