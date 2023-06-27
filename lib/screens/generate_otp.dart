@@ -109,9 +109,12 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
                 onTap: () async {
                   await Clipboard.setData(
                           ClipboardData(text: tokenController.text))
-                      .then((_) => ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                              content: Text('Copied to your clipboard'))));
+                      .then((_) => ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content:
+                                Center(child: Text('Copied to your clipboard')),
+                            backgroundColor: Colors.green,
+                          )));
                 },
               ),
             ),

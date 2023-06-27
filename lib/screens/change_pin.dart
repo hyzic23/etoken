@@ -57,6 +57,11 @@ class _ChangePinWidgetState extends State<ChangePinWidget> {
               Container(height: 70, child: confirmNewPinText()),
               const SizedBox(height: 16),
               SizedBox(height: 50, width: 400, child: buildSubmit()),
+              const SizedBox(height: 16),
+              const Text(
+                'Please note that this PIN + Token will be used to complete all transactions.',
+                style: TextStyle(fontSize: 9, fontStyle: FontStyle.normal),
+              )
             ],
           ),
         ),
