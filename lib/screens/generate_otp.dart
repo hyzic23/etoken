@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:etoken/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class GenerateToken extends StatelessWidget {
   const GenerateToken({super.key});
@@ -105,6 +106,13 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
                   contentPadding: EdgeInsets.zero,
                   alignLabelWithHint: true,
                 ),
+                onTap: () async {
+                  await Clipboard.setData(
+                          ClipboardData(text: tokenController.text))
+                      .then((_) => ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Copied to your clipboard'))));
+                },
               ),
             ),
             const SizedBox(height: 5),
