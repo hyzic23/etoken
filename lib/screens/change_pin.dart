@@ -1,6 +1,5 @@
 import 'package:etoken/widgets/button_widget.dart';
 import 'package:etoken/widgets/text_form_field_password_widget.dart';
-import 'package:etoken/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChangePin extends StatefulWidget {

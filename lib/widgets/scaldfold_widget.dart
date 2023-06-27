@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ScaldFold extends StatelessWidget {
-  String title;
+  final title;
 
-  ScaldFold({required this.title});
+  const ScaldFold({required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: title,
+      ),
+    );
   }
 }

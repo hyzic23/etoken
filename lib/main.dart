@@ -2,6 +2,7 @@ import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/change_pin.dart';
 import 'package:etoken/screens/generate_otp.dart';
 import 'package:etoken/screens/reset_pin.dart';
+import 'package:etoken/screens/shopping_list_screen.dart';
 import 'package:etoken/screens/time_synchronize.dart';
 import 'package:etoken/screens/token_details.dart';
 import 'package:flutter/material.dart';
@@ -177,6 +178,29 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ChangePin()));
+                },
+              ),
+            ),
+            const SizedBox(height: 4.0),
+            ConstrainedBox(
+              constraints: const BoxConstraints.expand(width: 350, height: 50),
+              child: ElevatedButton.icon(
+                label: const Align(
+                  //alignment: Alignment.centerLeft,
+                  child: Text('Shopping List',
+                      style: TextStyle(color: Constant.textColorWhite)),
+                ),
+                icon: const Icon(
+                  Icons.shopping_basket,
+                  color: Colors.white,
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Constant.buttonColorRed,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ShoppingListScreen()));
                 },
               ),
             ),

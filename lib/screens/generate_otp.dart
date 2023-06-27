@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:timer_count_down/timer_controller.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 class GenerateToken extends StatelessWidget {
   const GenerateToken({super.key});
@@ -33,10 +36,42 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
 
   String token = '';
   final tokenController = TextEditingController();
+  final counterController = TextEditingController();
+  int _remainingTime = 60; //Initiate time in seconds
+  late Timer _timer;
+  Timer? countdownTimer;
+  Duration myDuration = Duration(days: 5);
+  final CountdownController _controller = CountdownController(autoStart: true);
+  int _secondsRemaining = 60; // Set the initial countdown duration in seconds
+
+  bool isVisible = false;
+
   String generateSixDigitsToken() {
     String generatedToken = Random().nextInt(999999).toString().padLeft(6, '0');
     token = generatedToken;
     return token;
+  }
+
+  @override
+  void initState() {
+    startTimer();
+    super.initState();
+  }
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        setState(() {
+          if (_secondsRemaining < 1) {
+            timer.cancel(); // Cancel the timer when the countdown is completed
+          } else {
+            _secondsRemaining -= 1;
+          }
+        });
+      },
+    );
   }
 
   @override
@@ -53,38 +88,20 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
           children: [
             Container(
               alignment: Alignment.center,
-              //child: Padding(
-              // padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              //child: Container(
-              // height: 50.0,
-              // alignment: Alignment.center,
-              //child: Center(
               child: TextFormField(
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 24),
                 controller: tokenController,
                 decoration: const InputDecoration(
-                  //fillColor: Colors.amber,
-                  //filled: true,
                   disabledBorder: InputBorder.none,
                   border: InputBorder.none,
                   isCollapsed: true,
                   contentPadding: EdgeInsets.zero,
                   alignLabelWithHint: true,
-                  //labelText: token,
-                  // labelStyle: const TextStyle(
-                  //   color: Colors.black,
-                  //   fontSize: 25.0,
-                  // ),
                 ),
               ),
-              //),
-              //),
-              //),
             ),
-            const SizedBox(
-              height: 5,
-            ),
+            const SizedBox(height: 5),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red[900],
@@ -92,13 +109,22 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
                       borderRadius: BorderRadius.circular(10))),
               onPressed: () {
                 setState(() {
+                  isVisible = !false;
                   String tokenGenerated = generateSixDigitsToken();
                   tokenController.text = tokenGenerated;
-                  //token = tokenGenerated;
                 });
               },
               child: const Text('Generate OTP',
                   style: TextStyle(color: Colors.white)),
+            ),
+            const SizedBox(height: 5),
+            Center(
+              child: isVisible
+                  ? Text(
+                      '$_secondsRemaining seconds remaining',
+                      style: const TextStyle(fontSize: 25.0),
+                    )
+                  : null,
             ),
           ],
         ),
