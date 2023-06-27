@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:etoken/main.dart';
 import 'package:flutter/material.dart';
-import 'package:timer_count_down/timer_controller.dart';
-import 'package:timer_count_down/timer_count_down.dart';
 
 class GenerateToken extends StatelessWidget {
   const GenerateToken({super.key});
@@ -36,12 +35,8 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
 
   String token = '';
   final tokenController = TextEditingController();
-  final counterController = TextEditingController();
-  int _remainingTime = 60; //Initiate time in seconds
   late Timer _timer;
   Timer? countdownTimer;
-  Duration myDuration = Duration(days: 5);
-  final CountdownController _controller = CountdownController(autoStart: true);
   int _secondsRemaining = 60; // Set the initial countdown duration in seconds
 
   bool isVisible = false;
@@ -65,7 +60,12 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
       (Timer timer) {
         setState(() {
           if (_secondsRemaining < 1) {
-            timer.cancel(); // Cancel the timer when the countdown is completed
+            timer.cancel();
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const MyApp())); // Cancel the timer when the countdown is completed
           } else {
             _secondsRemaining -= 1;
           }
@@ -73,6 +73,12 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
       },
     );
   }
+
+  // @override
+  // void dispose() {
+  //   counterController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
