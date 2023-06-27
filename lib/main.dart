@@ -1,6 +1,7 @@
 import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/change_pin.dart';
 import 'package:etoken/screens/generate_otp.dart';
+import 'package:etoken/screens/onboarding_screen.dart';
 import 'package:etoken/screens/reset_pin.dart';
 import 'package:etoken/screens/shopping_list_screen.dart';
 import 'package:etoken/screens/time_synchronize.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Home(),
+      //home: const OnBoardingScreen(),
     );
   }
 }
