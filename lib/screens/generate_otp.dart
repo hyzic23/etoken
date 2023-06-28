@@ -75,11 +75,11 @@ class _GenerateTokenWidgetState extends State<GenerateTokenWidget> {
     );
   }
 
-  // @override
-  // void dispose() {
-  //   counterController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
