@@ -1,7 +1,6 @@
 import 'package:etoken/commons/constant.dart';
 import 'package:etoken/screens/change_pin.dart';
 import 'package:etoken/screens/generate_otp.dart';
-import 'package:etoken/screens/onboarding_screen.dart';
 import 'package:etoken/screens/reset_pin.dart';
 import 'package:etoken/screens/shopping_list_screen.dart';
 import 'package:etoken/screens/time_synchronize.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Zenith eToken',
+      title: 'modesire eToken',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -55,9 +54,10 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ConstrainedBox(
-              constraints: const BoxConstraints.expand(width: 350, height: 50),
+              constraints: const BoxConstraints.expand(width: 350, height: 100),
               child: Image.asset(
-                'assets/zenith-bank-logo_1.png',
+                'assets/desire_logoo.png',
+                //'assets/zenith-bank-logo_1.png',
                 height: 50.0,
                 width: 50.0,
               ),
@@ -183,29 +183,29 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-            const SizedBox(height: 4.0),
-            ConstrainedBox(
-              constraints: const BoxConstraints.expand(width: 350, height: 50),
-              child: ElevatedButton.icon(
-                label: const Align(
-                  //alignment: Alignment.centerLeft,
-                  child: Text('Shopping List',
-                      style: TextStyle(color: Constant.textColorWhite)),
-                ),
-                icon: const Icon(
-                  Icons.shopping_basket,
-                  color: Colors.white,
-                ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Constant.buttonColorRed,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10))),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ShoppingListScreen()));
-                },
-              ),
-            ),
+            // const SizedBox(height: 4.0),
+            // ConstrainedBox(
+            //   constraints: const BoxConstraints.expand(width: 350, height: 50),
+            //   child: ElevatedButton.icon(
+            //     label: const Align(
+            //       //alignment: Alignment.centerLeft,
+            //       child: Text('Shopping List',
+            //           style: TextStyle(color: Constant.textColorWhite)),
+            //     ),
+            //     icon: const Icon(
+            //       Icons.shopping_basket,
+            //       color: Colors.white,
+            //     ),
+            //     style: ElevatedButton.styleFrom(
+            //         backgroundColor: Constant.buttonColorRed,
+            //         shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(10))),
+            //     onPressed: () {
+            //       Navigator.of(context).push(MaterialPageRoute(
+            //           builder: (context) => const ShoppingListScreen()));
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
